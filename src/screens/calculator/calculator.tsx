@@ -1,100 +1,88 @@
-import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useEffect, useState, useCallback } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
+import tw from "twrnc";
+import Button from "./components/Button";
+import Display from "./components/Display";
+import GradientSphere from "../../components/common/GradientSphere";
 
-import Button from './components/Button';
-import Display from './components/Display';
-import { CalculatorScreenProps, TState } from './types';
+const { width } = Dimensions.get("window");
 
 let variableA: number;
 let variableB: number;
 let result: number;
 
-export default class Calculator extends Component<CalculatorScreenProps, TState> {
-  constructor(props: CalculatorScreenProps) {
-    super(props);
+const CalculatorScreen = ({ navigation }: any) => {
+  const [display, setDisplay] = useState<number | string>(0);
+  const [operation, setOperation] = useState<string>("");
+  const [shouldConcatenateDigit, setShouldConcatenateDigit] =
+    useState<boolean>(false);
 
-    // Uncomment to instantly move to the Chat
-    // props.navigation.navigate('Chat');
-
-    this.state = {
-      display: 0,
-      operation: '',
-      shouldConcatenateDigit: false,
-    };
-  }
-
-  concatenateDigit = (digit: string) => {
-    if (this.state.shouldConcatenateDigit) {
-      if (this.state.display.toString().replace(',', "").length >= 9) {
-
-      } else if (this.state.display == "0" && digit == "0") {
-
+  const concatenateDigit = (digit: string) => {
+    if (shouldConcatenateDigit) {
+      if (display.toString().replace(",", "").length >= 9) {
+        // Do nothing if the display is at its maximum length
+      } else if (display === "0" && digit === "0") {
+        // Do nothing if the display is "0" and the digit is "0"
       } else {
-        this.setState((prevState) => ({
-          display: Number(prevState.display.toString() + digit),
-        }));
+        setDisplay(Number(display.toString() + digit));
       }
     } else {
-      this.setState({
-        display: digit,
-        shouldConcatenateDigit: true,
-      });
+      setDisplay(digit);
+      setShouldConcatenateDigit(true);
     }
   };
 
-  activateOperation = (operation: string) => {
-    variableA = Number(this.state.display);
-    this.setState({
-      shouldConcatenateDigit: false,
-      operation,
-    });
+  const activateOperation = (operation: string) => {
+    variableA = Number(display);
+    setShouldConcatenateDigit(false);
+    setOperation(operation);
   };
 
-  generateResult = () => {
-    const startChat = (res: string | number) => {
-      if (Number(res) == 4000) {
-        console.log('Start Chat!');
-        this.props.navigation.navigate('Chat');
+  const generateResult = () => {
+    const startChat = (res: number) => {
+      if (res === 4000) {
+        console.log("Start Chat!");
+        navigation.navigate("Call");
       }
-    }
+    };
 
-    switch (this.state.operation) {
-      case 'division':
-        variableB = Number(this.state.display);
+    switch (operation) {
+      case "division":
+        variableB = Number(display);
         result = variableA / variableB;
-        this.setState({
-          display: +result.toFixed(5),
-          operation: '',
-        });
+        setDisplay(+result.toFixed(5));
+        setOperation("");
         break;
-      case 'multiplication':
-        variableB = Number(this.state.display);
+      case "multiplication":
+        variableB = Number(display);
         result = variableA * variableB;
-        this.setState({
-          display: +result.toFixed(5),
-          operation: '',
-        });
+        setDisplay(+result.toFixed(5));
+        setOperation("");
         break;
-      case 'subtraction':
-        variableB = Number(this.state.display);
+      case "subtraction":
+        variableB = Number(display);
         result = variableA - variableB;
-        this.setState({
-          display: +result.toFixed(5),
-          // This tweak fixes erros like 0.3 - 0.2 !== 0.1
-          operation: '',
-        });
-        // Start chat if res is 4000
+        setDisplay(+result.toFixed(5));
+        setOperation("");
         startChat(result);
         break;
-      case 'addition':
-        variableB = Number(this.state.display);
+      case "addition":
+        variableB = Number(display);
         result = variableA + variableB;
-        this.setState({
-          display: +result.toFixed(5),
-          // This tweak fixes errors like 0.1 + 0.2 !== 0.3
-          operation: '',
-        });
-        // Start calculator if res is 4000
+        setDisplay(+result.toFixed(5));
+        setOperation("");
         startChat(result);
         break;
       default:
@@ -102,201 +90,202 @@ export default class Calculator extends Component<CalculatorScreenProps, TState>
     }
   };
 
-  cancelButton = () => {
-    if (!this.state.shouldConcatenateDigit && this.state.display === 0) {
-      this.setState({
-        operation: '',
-      });
+  const cancelButton = () => {
+    if (!shouldConcatenateDigit && display === 0) {
+      setOperation("");
     }
-    this.setState({
-      display: 0,
-      shouldConcatenateDigit: false,
-    });
+    setDisplay(0);
+    setShouldConcatenateDigit(false);
   };
 
-  addDot = () => {
-    if (Math.round(Number(this.state.display)) === Number(this.state.display)) {
-      this.setState((prevState) => ({
-        display: `${prevState.display}.`,
-        shouldConcatenateDigit: true,
-      }));
+  const addDot = () => {
+    if (Math.round(Number(display)) === Number(display)) {
+      setDisplay(`${display}.`);
+      setShouldConcatenateDigit(true);
     }
   };
 
-  percentage = () => {
-    this.setState((prevState) => ({
-      display: Number(prevState.display) / 100,
-    }));
-  }
+  const percentage = () => {
+    setDisplay(Number(display) / 100);
+  };
 
-  invertSignal = () => {
-    this.setState((prevState) => ({
-      display: Number(prevState.display) * -1,
-    }));
-  }
+  const invertSignal = () => {
+    setDisplay(Number(display) * -1);
+  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Display display={Number(this.state.display)}/>
-        <View style={styles.row}>
-          <Button
-            backgroundColor="#A6A6A6"
-            color="black"
-            text={this.state.display ? 'C' : 'AC'}
-            func={() => this.cancelButton()}
-          />
-          <Button
-            backgroundColor="#A6A6A6"
-            color="black"
-            text="+/-"
-            func={() => this.invertSignal()}
-          />
-          <Button
-            backgroundColor="#A6A6A6"
-            color="black"
-            text="%"
-            func={() => this.percentage()}
-          />
-          <Button
-            orange
-            backgroundColor={
-              this.state.operation === 'division' ? 'white' : '#FF9404'
-            }
-            color={this.state.operation === 'division' ? '#FF9404' : 'white'}
-            text="÷"
-            func={() => this.activateOperation('division')}
-          />
-        </View>
-        <View style={styles.row}>
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="7"
-            func={() => this.concatenateDigit("7")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="8"
-            func={() => this.concatenateDigit("8")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="9"
-            func={() => this.concatenateDigit("9")}
-          />
-          <Button
-            orange
-            backgroundColor={
-              this.state.operation === 'multiplication' ? 'white' : '#FF9404'
-            }
-            color={this.state.operation === 'multiplication' ? '#FF9404' : 'white'}
-            text="×"
-            func={() => this.activateOperation('multiplication')}
-          />
-        </View>
-        <View style={styles.row}>
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="4"
-            func={() => this.concatenateDigit("4")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="5"
-            func={() => this.concatenateDigit("5")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="6"
-            func={() => this.concatenateDigit("6")}
-          />
-          <Button
-            orange
-            backgroundColor={
-              this.state.operation === 'subtraction' ? 'white' : '#FF9404'
-            }
-            color={this.state.operation === 'subtraction' ? '#FF9404' : 'white'}
-            text='−'
-            func={() => this.activateOperation('subtraction')}
-          />
-        </View>
-        <View style={styles.row}>
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="1"
-            func={() => this.concatenateDigit("1")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="2"
-            func={() => this.concatenateDigit("2")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text="3"
-            func={() => this.concatenateDigit("3")}
-          />
-          <Button
-            orange
-            backgroundColor={
-              this.state.operation === 'addition' ? 'white' : '#FF9404'
-            }
-            color={this.state.operation === 'addition' ? '#FF9404' : 'white'}
-            text='+'
-            func={() => this.activateOperation('addition')}
-          />
-        </View>
-        <View style={styles.row}>
-          <Button
-            special
-            backgroundColor="#333333"
-            color="white"
-            text="0"
-            func={() => this.concatenateDigit("0")}
-          />
-          <Button
-            backgroundColor="#333333"
-            color="white"
-            text=","
-            func={() => this.addDot()}
-          />
-          <Button
-            orange
-            backgroundColor="#FF9404"
-            color="white"
-            text="="
-            func={() => this.generateResult()}
-          />
-        </View>
+  return (
+    <View style={styles.container}>
+      <Display display={Number(display)} />
+      <View style={styles.row}>
+        <Button
+          backgroundColor="#A6A6A6"
+          color="black"
+          text={display ? "C" : "AC"}
+          func={cancelButton}
+        />
+        <Button
+          backgroundColor="#A6A6A6"
+          color="black"
+          text="+/-"
+          func={invertSignal}
+        />
+        <Button
+          backgroundColor="#A6A6A6"
+          color="black"
+          text="%"
+          func={percentage}
+        />
+        <Button
+          orange
+          backgroundColor={operation === "division" ? "white" : "#FF9404"}
+          color={operation === "division" ? "#FF9404" : "white"}
+          text="÷"
+          func={() => activateOperation("division")}
+        />
       </View>
-    );
-  }
-}
+      <View style={styles.row}>
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="7"
+          func={() => concatenateDigit("7")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="8"
+          func={() => concatenateDigit("8")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="9"
+          func={() => concatenateDigit("9")}
+        />
+        <Button
+          orange
+          backgroundColor={operation === "multiplication" ? "white" : "#FF9404"}
+          color={operation === "multiplication" ? "#FF9404" : "white"}
+          text="×"
+          func={() => activateOperation("multiplication")}
+        />
+      </View>
+      <View style={styles.row}>
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="4"
+          func={() => concatenateDigit("4")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="5"
+          func={() => concatenateDigit("5")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="6"
+          func={() => concatenateDigit("6")}
+        />
+        <Button
+          orange
+          backgroundColor={operation === "subtraction" ? "white" : "#FF9404"}
+          color={operation === "subtraction" ? "#FF9404" : "white"}
+          text="−"
+          func={() => activateOperation("subtraction")}
+        />
+      </View>
+      <View style={styles.row}>
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="1"
+          func={() => concatenateDigit("1")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="2"
+          func={() => concatenateDigit("2")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text="3"
+          func={() => concatenateDigit("3")}
+        />
+        <Button
+          orange
+          backgroundColor={operation === "addition" ? "white" : "#FF9404"}
+          color={operation === "addition" ? "#FF9404" : "white"}
+          text="+"
+          func={() => activateOperation("addition")}
+        />
+      </View>
+      <View style={styles.row}>
+        <Button
+          special
+          backgroundColor="#333333"
+          color="white"
+          text="0"
+          func={() => concatenateDigit("0")}
+        />
+        <Button
+          backgroundColor="#333333"
+          color="white"
+          text=","
+          func={addDot}
+        />
+        <Button
+          orange
+          backgroundColor="#FF9404"
+          color="white"
+          text="="
+          func={generateResult}
+        />
+      </View>
+    </View>
+    // <View style={tw`flex-1 items-center justify-center bg-black`}>
+    //   <GradientSphere animatedStyle={topGradientStyle} color="#522d83" />
+    //   <GradientSphere animatedStyle={bottomGradientStyle} color="#0f84a7" />
+
+    //   <View style={tw`w-full px-10 mb-4 rounded`}>
+    //     <Text style={tw`text-4xl text-right text-white`}>{display}</Text>
+    //   </View>
+    //   <View style={tw`flex-row flex-wrap justify-center`}>
+    //     {buttons.map((button) => (
+    //       <TouchableOpacity
+    //         key={button}
+    //         style={tw`m-2 p-4 bg-gray-700 rounded-full w-[18%] h-16 items-center justify-center`}
+    //         onPress={() => handlePress(button)}
+    //       >
+    //         <Text style={tw`text-white text-2xl`}>{button}</Text>
+    //       </TouchableOpacity>
+    //     ))}
+    //   </View>
+    // </View>
+  );
+};
+
+export default CalculatorScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'black',
+    justifyContent: "flex-end",
+    backgroundColor: "black",
     padding: 8,
     paddingBottom: 70,
   },
   row: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginTop: 5,
     marginBottom: 7,
   },
   icon: {
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

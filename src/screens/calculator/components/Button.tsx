@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, {PropsWithChildren} from 'react';
 import {
   Text,
   View,
@@ -6,9 +6,9 @@ import {
   TouchableHighlight,
   Dimensions,
 } from 'react-native';
-import { ButtonProps } from '../types';
+import {ButtonProps} from '../types';
 
-const { width: WIDTH } = Dimensions.get('window');
+const {width: WIDTH} = Dimensions.get('window');
 
 export default function Button(props: PropsWithChildren<ButtonProps>) {
   return (
@@ -23,8 +23,7 @@ export default function Button(props: PropsWithChildren<ButtonProps>) {
             backgroundColor: props.backgroundColor,
             justifyContent: 'center',
           },
-        ]}
-      >
+        ]}>
         <View>
           {props.children ? (
             props.children
@@ -34,10 +33,9 @@ export default function Button(props: PropsWithChildren<ButtonProps>) {
                 props.special ? styles.specialText : styles.text,
                 {
                   color: props.color,
-                  fontSize: props.orange ? 43 : 35
+                  fontSize: props.orange ? 43 : 35,
                 },
-              ]}
-            >
+              ]}>
               {props.text}
             </Text>
           )}
