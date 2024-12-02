@@ -12,7 +12,7 @@ import PeerConnection from './utils/PeerConnection';
 import socket from './utils/socket';
 import { StyleSheet, Text, View } from "react-native";
 import Calling from "./components/Calling/Calling";
-import { CallModal, CallWindow, MainWindow } from "./components";
+import { CallModal, CallWindow, MainWindow, Contacts } from "./components";
 import randNickname from "./utils/randNickname";
 import Security from "./utils/security";
 import Sound from "react-native-sound";
@@ -438,9 +438,10 @@ export default function Chat() {
         // 1e1e1e
         <View style={{ ...styles.linearGradient, backgroundColor: "#000" }}>
             <View style={styles.app}>
-                <Text style={styles.appTitle}>Мессенджер</Text>
+                {/* <Text style={styles.appTitle}>Мессенджер</Text> */}
                 <Text style={styles.appError}>{error}</Text>
-                <MainWindow startCall={startCall} setNickname={setNickname} />
+                <Contacts startCall={startCall} setNickname={setNickname}/>
+                {/* <MainWindow startCall={startCall} setNickname={setNickname} /> */}
                 {calling &&
                     <Calling startBeep={startBeep} />}
                 {showModal && (
@@ -497,8 +498,6 @@ const styles = StyleSheet.create({
         color: "white",
         flexDirection: "column",
         display: "flex",
-        justifyContent: 'center',
-        alignItems: "center",
     },
     appTitle: {
         color: "white",

@@ -11,31 +11,31 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		14B44DD828EE4C89BDD169AB /* loading-wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E47CE988E4B3DB2DFA436 /* loading-wave.json */; };
 		15B5CD6D144C4E47BDFA144A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CADB445B514FC8B6524582 /* Montserrat-SemiBold.ttf */; };
 		1BE5A847CAE6AF290D3C7F74 /* Pods_SChat_SChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852BA9D32FD4BB5834DDFA70 /* Pods_SChat_SChatTests.framework */; };
-		329EC6A12BEBC28E00449BBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 329EC6A02BEBC28E00449BBB /* GoogleService-Info.plist */; };
 		35F1CB87306B42118D6AA308 /* mic_slash.svg in Resources */ = {isa = PBXBuildFile; fileRef = 93906BD289294203AAB52661 /* mic_slash.svg */; };
 		39B08169608B42589BF3B033 /* phone_disable.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9F02C8BCCC6544D68CE2D2F5 /* phone_disable.svg */; };
 		5C724615DB904BCD9E0BF01C /* phone_arrow_up.svg in Resources */ = {isa = PBXBuildFile; fileRef = A72F4E909297417DB9F7E638 /* phone_arrow_up.svg */; };
 		65AF8B077CDE4CE0A0716B84 /* backward.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5635B280501F4B4284A2F455 /* backward.svg */; };
+		695756C3CAD54829AE7AF9E0 /* confirmation-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1F7F5D4B0A6494580085CFB /* confirmation-sound.mp3 */; };
 		6C40D4E6592B4FD885924B5D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE5B441BB9154E3BAC4D9980 /* Montserrat-Regular.ttf */; };
+		743A81B9687A47AC83FABB03 /* lock-close.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D993EAAE5F444D2905A9EF4 /* lock-close.json */; };
 		7532E987FE9D168733C65BB9 /* Pods_SChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DA6E9F5278A7257A7976E6 /* Pods_SChat.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8928E1C9131143628B66110B /* connection_p2p.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6817EE6EE51342B2863ECE8D /* connection_p2p.svg */; };
 		9469458067924AAB8A3297D4 /* smartphone.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0C3E5DA4C37E4762A889938E /* smartphone.svg */; };
+		973DDBDEF76143409FB3F614 /* loading-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D84215681D3467CA88D2333 /* loading-success.json */; };
+		9D9DD4872CDD4861009F387C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9DD4862CDD4861009F387C /* GoogleService-Info.plist */; };
 		A02F12066C40482E8AC47F46 /* send.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2C7CAEF869654FB79829DB29 /* send.svg */; };
 		A45F4A03305F408B878A8FF0 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F57EAA5FB6D4057821216AB /* Montserrat-Bold.ttf */; };
 		A72C493B3DFB468986CF7A74 /* phone.svg in Resources */ = {isa = PBXBuildFile; fileRef = 085E6A4B199D46F187585B15 /* phone.svg */; };
+		B3FEB61A8AD44A30989E9D37 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4B466F1A247C088CE4B70 /* index.ts */; };
 		C5CF654838864311AFD58EB5 /* phone_down.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6189C667FDB5434094A27C5B /* phone_down.svg */; };
+		C959A09BC79946BF8B84CD37 /* checkmark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 774C2A70927D4F4CBCC4E069 /* checkmark-success.json */; };
 		EE44390176614802BECB5AC7 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 653A6F774ADD4C5B81D13676 /* beep.mp3 */; };
 		F346D458EA0A49AD8AD63EC5 /* end_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D183A5DA4F4A4BBFB7FA2B5D /* end_beep.mp3 */; };
-		695756C3CAD54829AE7AF9E0 /* confirmation-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1F7F5D4B0A6494580085CFB /* confirmation-sound.mp3 */; };
-		B3FEB61A8AD44A30989E9D37 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4B466F1A247C088CE4B70 /* index.ts */; };
 		F920A6CAA9A24071976D9535 /* timer.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0EBA42FA2859475BB4E71365 /* timer.svg */; };
-		C959A09BC79946BF8B84CD37 /* checkmark-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 774C2A70927D4F4CBCC4E069 /* checkmark-success.json */; };
-		973DDBDEF76143409FB3F614 /* loading-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D84215681D3467CA88D2333 /* loading-success.json */; };
-		14B44DD828EE4C89BDD169AB /* loading-wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E47CE988E4B3DB2DFA436 /* loading-wave.json */; };
-		743A81B9687A47AC83FABB03 /* lock-close.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D993EAAE5F444D2905A9EF4 /* lock-close.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 		00E356F21AD99517003FC87E /* SChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChatTests.m; sourceTree = "<group>"; };
 		085E6A4B199D46F187585B15 /* phone.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = phone.svg; path = ../src/assets/icons/source/phone.svg; sourceTree = "<group>"; };
 		0C3E5DA4C37E4762A889938E /* smartphone.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = smartphone.svg; path = ../src/assets/icons/source/smartphone.svg; sourceTree = "<group>"; };
+		0EBA42FA2859475BB4E71365 /* timer.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = timer.svg; path = ../src/assets/icons/source/timer.svg; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SChat/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = SChat/AppDelegate.mm; sourceTree = "<group>"; };
@@ -62,8 +63,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SChat/main.m; sourceTree = "<group>"; };
 		2C7CAEF869654FB79829DB29 /* send.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = send.svg; path = ../src/assets/icons/source/send.svg; sourceTree = "<group>"; };
 		3240EB092B5FFEBD00B6FD0C /* SChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SChat.entitlements; path = SChat/SChat.entitlements; sourceTree = "<group>"; };
-		329EC6A02BEBC28E00449BBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-SChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SChat.debug.xcconfig"; path = "Target Support Files/Pods-SChat/Pods-SChat.debug.xcconfig"; sourceTree = "<group>"; };
+		3D993EAAE5F444D2905A9EF4 /* lock-close.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "lock-close.json"; path = "../src/assets/lottie/source/lock-close.json"; sourceTree = "<group>"; };
 		3F57EAA5FB6D4057821216AB /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		5635B280501F4B4284A2F455 /* backward.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = backward.svg; path = ../src/assets/icons/source/backward.svg; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SChat.release.xcconfig"; path = "Target Support Files/Pods-SChat/Pods-SChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,24 +72,23 @@
 		6189C667FDB5434094A27C5B /* phone_down.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = phone_down.svg; path = ../src/assets/icons/source/phone_down.svg; sourceTree = "<group>"; };
 		653A6F774ADD4C5B81D13676 /* beep.mp3 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beep.mp3; path = ../src/assets/sounds/beep.mp3; sourceTree = "<group>"; };
 		6817EE6EE51342B2863ECE8D /* connection_p2p.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = connection_p2p.svg; path = ../src/assets/icons/source/connection_p2p.svg; sourceTree = "<group>"; };
+		6D84215681D3467CA88D2333 /* loading-success.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "loading-success.json"; path = "../src/assets/lottie/source/loading-success.json"; sourceTree = "<group>"; };
+		774C2A70927D4F4CBCC4E069 /* checkmark-success.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "checkmark-success.json"; path = "../src/assets/lottie/source/checkmark-success.json"; sourceTree = "<group>"; };
 		77CADB445B514FC8B6524582 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		7C1E47CE988E4B3DB2DFA436 /* loading-wave.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "loading-wave.json"; path = "../src/assets/lottie/source/loading-wave.json"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SChat/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		852BA9D32FD4BB5834DDFA70 /* Pods_SChat_SChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SChat_SChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SChat-SChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SChat-SChatTests.release.xcconfig"; path = "Target Support Files/Pods-SChat-SChatTests/Pods-SChat-SChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		8EA4B466F1A247C088CE4B70 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../src/assets/icons/index.ts; sourceTree = "<group>"; };
 		93906BD289294203AAB52661 /* mic_slash.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mic_slash.svg; path = ../src/assets/icons/source/mic_slash.svg; sourceTree = "<group>"; };
+		9D9DD4862CDD4861009F387C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F02C8BCCC6544D68CE2D2F5 /* phone_disable.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = phone_disable.svg; path = ../src/assets/icons/source/phone_disable.svg; sourceTree = "<group>"; };
 		A72F4E909297417DB9F7E638 /* phone_arrow_up.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = phone_arrow_up.svg; path = ../src/assets/icons/source/phone_arrow_up.svg; sourceTree = "<group>"; };
+		B1F7F5D4B0A6494580085CFB /* confirmation-sound.mp3 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "confirmation-sound.mp3"; path = "../src/assets/sounds/confirmation-sound.mp3"; sourceTree = "<group>"; };
 		B2DA6E9F5278A7257A7976E6 /* Pods_SChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D183A5DA4F4A4BBFB7FA2B5D /* end_beep.mp3 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = end_beep.mp3; path = ../src/assets/sounds/end_beep.mp3; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EE5B441BB9154E3BAC4D9980 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		B1F7F5D4B0A6494580085CFB /* confirmation-sound.mp3 */ = {isa = PBXFileReference; name = "confirmation-sound.mp3"; path = "../src/assets/sounds/confirmation-sound.mp3"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8EA4B466F1A247C088CE4B70 /* index.ts */ = {isa = PBXFileReference; name = "index.ts"; path = "../src/assets/icons/index.ts"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0EBA42FA2859475BB4E71365 /* timer.svg */ = {isa = PBXFileReference; name = "timer.svg"; path = "../src/assets/icons/source/timer.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		774C2A70927D4F4CBCC4E069 /* checkmark-success.json */ = {isa = PBXFileReference; name = "checkmark-success.json"; path = "../src/assets/lottie/source/checkmark-success.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6D84215681D3467CA88D2333 /* loading-success.json */ = {isa = PBXFileReference; name = "loading-success.json"; path = "../src/assets/lottie/source/loading-success.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7C1E47CE988E4B3DB2DFA436 /* loading-wave.json */ = {isa = PBXFileReference; name = "loading-wave.json"; path = "../src/assets/lottie/source/loading-wave.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3D993EAAE5F444D2905A9EF4 /* lock-close.json */ = {isa = PBXFileReference; name = "lock-close.json"; path = "../src/assets/lottie/source/lock-close.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,6 @@
 		13B07FAE1A68108700A75B9A /* SChat */ = {
 			isa = PBXGroup;
 			children = (
-				329EC6A02BEBC28E00449BBB /* GoogleService-Info.plist */,
 				3240EB092B5FFEBD00B6FD0C /* SChat.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -163,6 +162,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9D9DD4862CDD4861009F387C /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* SChat */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SChatTests */,
@@ -297,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
+			packageReferences = (
+				9DBBEC952CE3CA9F00F9A980 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -329,7 +332,6 @@
 				65AF8B077CDE4CE0A0716B84 /* backward.svg in Resources */,
 				8928E1C9131143628B66110B /* connection_p2p.svg in Resources */,
 				35F1CB87306B42118D6AA308 /* mic_slash.svg in Resources */,
-				329EC6A12BEBC28E00449BBB /* GoogleService-Info.plist in Resources */,
 				A72C493B3DFB468986CF7A74 /* phone.svg in Resources */,
 				5C724615DB904BCD9E0BF01C /* phone_arrow_up.svg in Resources */,
 				39B08169608B42589BF3B033 /* phone_disable.svg in Resources */,
@@ -337,6 +339,7 @@
 				A02F12066C40482E8AC47F46 /* send.svg in Resources */,
 				9469458067924AAB8A3297D4 /* smartphone.svg in Resources */,
 				695756C3CAD54829AE7AF9E0 /* confirmation-sound.mp3 in Resources */,
+				9D9DD4872CDD4861009F387C /* GoogleService-Info.plist in Resources */,
 				B3FEB61A8AD44A30989E9D37 /* index.ts in Resources */,
 				F920A6CAA9A24071976D9535 /* timer.svg in Resources */,
 				C959A09BC79946BF8B84CD37 /* checkmark-success.json in Resources */,
@@ -598,7 +601,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SChat/SChat.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ZLBT4J4QGV;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SChat/Info.plist;
@@ -606,14 +611,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.secretchat.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calcChat.app;
 				PRODUCT_NAME = SChat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -627,21 +633,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SChat/SChat.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ZLBT4J4QGV;
 				INFOPLIST_FILE = SChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.secretchat.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calcChat.app;
 				PRODUCT_NAME = SChat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -833,6 +842,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DBBEC952CE3CA9F00F9A980 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

@@ -40,7 +40,7 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>test</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Confirm to use this app</string>
 	<key>UIAppFonts</key>
@@ -62,11 +62,13 @@
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSContactsUsageDescription</key>
+	<string>ContactsList needs your permission to access your contacts</string>
 </dict>
 </plist>

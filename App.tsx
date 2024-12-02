@@ -8,6 +8,8 @@ import messaging from '@react-native-firebase/messaging';
 import { getFcmToken, registerListenerWithFCM } from './src/screens/chat/utils/fcmHelper/index';
 import { Navigator } from './src/navigation/Navigator';
 
+import "./src/screens/chat/utils/socket"
+
 async function requestUserPermission() {
   const authStatus = await messaging().requestPermission();
   const enabled =

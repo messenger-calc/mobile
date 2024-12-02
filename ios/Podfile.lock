@@ -389,6 +389,8 @@ PODS:
   - react-native-blur (4.4.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - react-native-contacts (8.0.4):
+    - React-Core
   - react-native-get-random-values (1.10.0):
     - React-Core
   - react-native-notifications (5.1.0):
@@ -511,9 +513,13 @@ PODS:
     - React-jsi (= 0.72.3)
     - React-logger (= 0.72.3)
     - React-perflogger (= 0.72.3)
+  - RNCAsyncStorage (2.1.0):
+    - React-Core
   - RNCPicker (2.7.7):
     - React-Core
   - RNCPushNotificationIOS (1.11.0):
+    - React-Core
+  - RNDeviceInfo (14.0.1):
     - React-Core
   - RNFBApp (18.7.3):
     - Firebase/CoreOnly (= 10.19.0)
@@ -539,6 +545,9 @@ PODS:
   - RNSound/Core (0.11.2):
     - React-Core
   - RNSVG (14.1.0):
+    - React-Core
+  - RNVectorIcons (10.2.0):
+    - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
@@ -570,6 +579,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
+  - react-native-contacts (from `../node_modules/react-native-contacts`)
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-notifications (from `../node_modules/react-native-notifications`)
   - react-native-onesignal (from `../node_modules/react-native-onesignal`)
@@ -592,8 +602,10 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - "RNNotifee (from `../node_modules/@notifee/react-native`)"
@@ -601,6 +613,7 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -672,6 +685,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
+  react-native-contacts:
+    :path: "../node_modules/react-native-contacts"
   react-native-get-random-values:
     :path: "../node_modules/react-native-get-random-values"
   react-native-notifications:
@@ -716,10 +731,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
   RNCPushNotificationIOS:
     :path: "../node_modules/@react-native-community/push-notification-ios"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBMessaging:
@@ -734,6 +753,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -770,19 +791,20 @@ SPEC CHECKSUMS:
   React-Core: aaacca67f9ca54f142827e67f44bfbd815875eb6
   React-CoreModules: 32fab1d62416849a3b6dac6feff9d54e5ddc2d1e
   React-cxxreact: 37765b4975541105b2a3322a4b473417c158c869
-  React-debug: 90575c5151ff7f0624d65e1f96c0df8122f1d29f
+  React-debug: 473c817b32831ac2d4e912a52117da6ba4e751a3
   React-hermes: 935ae71fb3d7654e947beba8498835cd5e479707
   React-jsi: ec628dc7a15ffea969f237b0ea6d2fde212b19dd
   React-jsiexecutor: 59d1eb03af7d30b7d66589c410f13151271e8006
   React-jsinspector: b511447170f561157547bc0bef3f169663860be7
   React-logger: c5b527272d5f22eaa09bb3c3a690fee8f237ae95
   react-native-blur: c4da0fcd0bb056420f62be1b2573987a69308c91
+  react-native-contacts: cdeb7709dcc626e5fd7ee3d3e3685357e877cbd5
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-notifications: 4601a5a8db4ced6ae7cfc43b44d35fe437ac50c4
   react-native-onesignal: ab800900cffeca4d9db70a05244013fc8a36ceb8
   react-native-safe-area-context: 0ee144a6170530ccc37a0fd9388e28d06f516a89
   react-native-webrtc: 6fc32f3d556aa60aa2334eeaf6cadcdab2432809
-  React-NativeModulesApple: f06ced1c10c1602620fa3b9b06bbc5cb15a1a195
+  React-NativeModulesApple: 88ecd7883d79b534c1ab4cdd22d18e5ca26bfe9e
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5
   React-RCTActionSheet: c0b62af44e610e69d9a2049a682f5dba4e9dff17
   React-RCTAnimation: fe7005136b58f58871cab2f70732343b6e330d30
@@ -796,11 +818,13 @@ SPEC CHECKSUMS:
   React-RCTVibration: ea3a68a49873a54ced927c90923fc6932baf344a
   React-rncore: 9672a017af4a7da7495d911f0b690cbcae9dd18d
   React-runtimeexecutor: 369ae9bb3f83b65201c0c8f7d50b72280b5a1dbc
-  React-runtimescheduler: 1cc5068259fe6b948bb01d79e6e3102dd94b9d87
-  React-utils: 84c011cbda762e2096ae09186ecba7477d2cbf97
-  ReactCommon: 38df2744ee0257492701dd3c1533f73df3058059
+  React-runtimescheduler: 0c21aff7960055788138ba5d70fffb232f41f8d7
+  React-utils: d361d9ceeb275aa8e6517d5cd0b9dc60721e6cae
+  ReactCommon: 2cc08b73533d051277a8222b0062d5199548e5b0
+  RNCAsyncStorage: cc6479c4acd84cc7004946946c8afe30b018184d
   RNCPicker: b7873ba797dc586bfaf3307d737cbdc620a9ff3e
   RNCPushNotificationIOS: 64218f3c776c03d7408284a819b2abfda1834bc8
+  RNDeviceInfo: 825f0d2f4381327317f12d1522720a8f76e6a19e
   RNFBApp: 5ee688b07ed0fa692a3a8fd07df6d6ae41e4c3a0
   RNFBMessaging: c839473d12cbe1b042b29898177033de4214e932
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
@@ -808,6 +832,7 @@ SPEC CHECKSUMS:
   RNScreens: 1c2444658fbb696a094272d946708167b1f63409
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
+  RNVectorIcons: b0f3ecdf598c397ae0c23e688a121b6eeadcf286
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce
 

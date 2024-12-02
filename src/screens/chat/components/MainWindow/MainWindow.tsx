@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import socket from '../../utils/socket'
 
-import { Alert, AppState, Clipboard, DeviceEventEmitter, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, AppState, Clipboard, DeviceEventEmitter, PermissionsAndroid, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
     MainWindowButtonIcon,
     MainWindowButtonText,
@@ -20,20 +20,45 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import {Svg} from "../../../../assets/icons";
 import { MainWindowProps } from './types';
 
+import Contacts from 'react-native-contacts';
+import { Contact } from 'react-native-contacts/type';
+
 export const MainWindow = ({ startCall, setNickname }: MainWindowProps) => {
     const [remoteId, setRemoteId] = useState('');
     const [localId, setLocalId] = useState('');
     const [localIdShow, setLocalIdShow] = useState(false);
     const [error, setError] = useState('');
 
+    const [contacts, setContacts] = React.useState<Contact[] | null>(
+        null,
+    );
+
+    useEffect(() => {
+        console.log(contacts);
+    }, [contacts])
+
     useEffect(() => {
         console.log('useEffect');
         console.log('Init Socket signal');
-        socket
-            .on('init', ({ id }) => {
-                setLocalId(id);
-            })
-            .emit('init');
+        socket.on('init', ({ id }) => {
+            console.log(id);
+            setLocalId(id);
+        });
+        socket.emit('init')
+
+        if (Platform.OS === 'android') {
+            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
+              title: 'Contacts',
+              message: 'ContactsList app would like to access your contacts.',
+              buttonPositive: 'Accept',
+            }).then(value => {
+              if (value === 'granted') {
+                Contacts.getAll().then(setContacts);
+              }
+            });
+          } else {
+            Contacts.getAll().then(setContacts);
+          }
     }, [])
 
     const callWithVideo = (video: boolean) => {
