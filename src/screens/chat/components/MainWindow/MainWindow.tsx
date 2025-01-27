@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
-import socket from '../../utils/socket'
+// import socket from '../../utils/socket'
 
 import { Alert, AppState, Clipboard, DeviceEventEmitter, PermissionsAndroid, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
@@ -22,8 +22,10 @@ import { MainWindowProps } from './types';
 
 import Contacts from 'react-native-contacts';
 import { Contact } from 'react-native-contacts/type';
+import { SocketContext } from '../../socket/SocketContext';
 
 export const MainWindow = ({ startCall, setNickname }: MainWindowProps) => {
+    const socket = useContext(SocketContext);
     const [remoteId, setRemoteId] = useState('');
     const [localId, setLocalId] = useState('');
     const [localIdShow, setLocalIdShow] = useState(false);
@@ -40,7 +42,7 @@ export const MainWindow = ({ startCall, setNickname }: MainWindowProps) => {
     useEffect(() => {
         console.log('useEffect');
         console.log('Init Socket signal');
-        socket.on('init', ({ id }) => {
+        socket.on('init', ({ id }: any) => {
             console.log(id);
             setLocalId(id);
         });

@@ -1,6 +1,7 @@
 import Emitter from './Emitter'
 import MediaDevice from './MediaDevice'
-import socket from './socket'
+// import socket from './socket'
+import socket from '../socket/connection';
 import {RTCIceCandidate, RTCPeerConnection, RTCSessionDescription} from 'react-native-webrtc'
 import { TURN_URL, TURN_USERNAME, TURN_CREDENTIALS } from "@env";
 import Security from './security';
@@ -33,9 +34,9 @@ class PeerConnection extends Emitter {
     deviceToken: string | null;
 
     logTurnCredentials() {
-        console.log("urls: , ", TURN_URL);
-        console.log("username: , ", TURN_USERNAME);
-        console.log("credential: , ", TURN_CREDENTIALS);
+        console.log("urls: ", TURN_URL);
+        console.log("username: ", TURN_USERNAME);
+        console.log("credential: ", TURN_CREDENTIALS);
     }
 
     constructor(remoteId: string, security: Security) {
@@ -49,7 +50,7 @@ class PeerConnection extends Emitter {
         this.pc = new RTCPeerConnection(CONFIG);
         this.pc.addEventListener('icecandidate', event => {
             console.log("EVENT TYPE => ", event.type);
-            socket.emit('call', {
+            socket().emit('call', {
                 to: this.remoteId,
                 candidate: event.candidate
             });
@@ -71,11 +72,11 @@ class PeerConnection extends Emitter {
 
                 this.emit('localStream', stream);
 
-
-
-                isCaller
-                    ? socket.emit('request', {to: this.remoteId})
-                    : this.createOffer();
+                if (isCaller) {
+                    socket().emit('request', {to: this.remoteId});
+                } else {
+                    this.createOffer();
+                }
             })
             .start();
         return this;
@@ -83,12 +84,12 @@ class PeerConnection extends Emitter {
 
     stop(isCaller: boolean) {
         if (isCaller) {
-            socket.emit('end', {to: this.remoteId})
+            socket().emit('end', {to: this.remoteId})
         }
 
         this.mediaDevice.stop()
 
-        try{
+        try {
             this.pc?.restartIce()
             this.pc?.close();
         } catch (e) {
@@ -103,7 +104,7 @@ class PeerConnection extends Emitter {
             iceRestart: true,
             offerToReceiveAudio: true,
             offerToReceiveVideo: false,
-          }).then(this.getDescription).catch(console.error)
+        }).then(this.getDescription).catch(console.error)
 
         return this;
     }
@@ -119,10 +120,9 @@ class PeerConnection extends Emitter {
     }
 
     async getDescription(desc: RTCSessionDescription) {
-        try{
+        try {
             await this.pc?.setLocalDescription(desc)
-    
-            socket.emit('call', {to: this.remoteId, sdp: desc})
+            socket().emit('call', {to: this.remoteId, sdp: desc})
         } catch (e) {
             console.error(e);
         }
@@ -140,17 +140,10 @@ class PeerConnection extends Emitter {
                 console.log('[INFO] Data channel opened!');
             }) 
         } catch (e) {
-            console.error('[ERROR Fail to create a data channel: ', e);
+            console.error('[ERROR] Fail to create a data channel: ', e);
         }
     }
 
-    /**
-   * Listen messages and if any accurs - call a <cb> from params and pass new message to it.
-   *
-   * @param cb - a callback that will be called when any new message occures
-   * @returns void
-   *
-   */
     listenMessages(cb: any) {
         try {
             this.pc?.addEventListener('datachannel', (event: any) => {
@@ -174,7 +167,6 @@ class PeerConnection extends Emitter {
                 const channel = event.channel;
                 channel.addEventListener('message', (data: any) => {
                     const res: TMessage = JSON.parse(this.security.decryptObject(data.data)) as TMessage;
-                    // TODO: Remove ToSting() in prod
                     if (res.type === TMessageEnum.Internal) {
                         cb(res as TInternalMessage);
                     }
@@ -185,13 +177,6 @@ class PeerConnection extends Emitter {
         }
     }
 
-    /**
-   * Send <Message> to another peer
-   *
-   * @param message - a Message object that will be sended to another peer
-   * @returns void
-   *
-   */
     sendMessage(message: TUserMessage | TInternalMessage) {
         this.channel?.send(this.security.encryptObject(JSON.stringify(message)));
     }
@@ -219,4 +204,4 @@ class PeerConnection extends Emitter {
     }
 }
 
-export default PeerConnection
+export default PeerConnection;

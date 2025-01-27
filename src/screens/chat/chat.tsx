@@ -5,11 +5,11 @@
  * @format
  */
 
-import React, { createContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { REQUEST_TIMEOUT_MS } from "@env";
 
 import PeerConnection from './utils/PeerConnection';
-import socket from './utils/socket';
+// import socket from './utils/socket';
 import { StyleSheet, Text, View } from "react-native";
 import Calling from "./components/Calling/Calling";
 import { CallModal, CallWindow, MainWindow, Contacts } from "./components";
@@ -26,6 +26,7 @@ import axios from 'axios';
 import messaging from '@react-native-firebase/messaging';
 import WebRTCIssueDetector, { EventType } from 'webrtc-issue-detector';
 import { EncryptAnimation } from './components/EncryptAnimation/EncryptAnimation';
+import { SocketContext } from './socket/SocketContext';
 
 export const PeerConnectionContext = createContext<TPeerConnectionContext>({
     connection: {} as PeerConnection
@@ -37,6 +38,7 @@ export const ChatContext = createContext<TChatContext>({
 
 export default function Chat() {
     const security = useRef<Security | null>(null);
+    const socket = useContext(SocketContext);
 
     const [error, setError] = useState<string>('');
 
@@ -93,7 +95,7 @@ export default function Chat() {
         setLocalDeviceToken();
 
         console.log('Chat.jsx UseEffect #1: socket request');
-        socket.on('request', (data) => {
+        socket.on('request', (data: any) => {
             console.log('request Payload: ', data)
             setCallFrom(data.from)
             setShowModal(true)
@@ -112,7 +114,7 @@ export default function Chat() {
         //     const bytes = crypto.AES.decrypt(data, TRANSFER_CRYPTO_PAYLOAD_KEY, { iv: TRANSFER_CRYPTO_PAYLOAD_IV });
         //     const payload = bytes.toString(crypto.enc.Utf8);
         //     security.current = new Security(payload?.secretKey, payload?.iv)
-        socket.on('encryptionPayload', ({ secretKey, iv }) => {
+        socket.on('encryptionPayload', ({ secretKey, iv }: any) => {
             security.current = new Security(secretKey, iv)
         })
     });
@@ -122,7 +124,7 @@ export default function Chat() {
         console.log('Chat.jsx UseEffect #2: socket');
 
         socket
-            .on('call', async (data) => {
+            .on('call', async (data: any) => {
                 if (data.sdp) {
                     try {
                         console.log('SetRemoteDescription');
@@ -147,26 +149,26 @@ export default function Chat() {
     }, [pc])
 
     useEffect(() => {
-        socket.on('voiceCallStart', (data) => {
+        socket.on('voiceCallStart', (data: any) => {
             console.log('Start audio call fromm another peer!');
             setShowCallingScreen(true);
         })
-            .on('voiceCallReject', (data) => {
+            .on('voiceCallReject', (data: any) => {
                 console.log('Audio Calling Rejected!')
                 setChatStatus('Користувач відхилив виклик!');
                 setTimeout(() => {
                     setChatStatus('');
                 }, 5000);
             })
-            .on('voiceCallSuccess', (data) => {
+            .on('voiceCallSuccess', (data: any) => {
                 console.log('Start Call');
                 setShowCallScreen(true);
                 setEncryptAnimation(true);
             })
-            .on('voiceCallEnd', (data) => {
+            .on('voiceCallEnd', (data: any) => {
                 setShowCallScreen(false);
             })
-            .on('send', (data) => {
+            .on('send', (data: any) => {
                 if (!peerNickname) {
                     setPeerNickname(data.nickname);
                     setOtherUserDeviceToken(data.deviceToken)
@@ -175,13 +177,13 @@ export default function Chat() {
                     }
                 }
             })
-            .on('packetLoss', (data) => {
+            .on('packetLoss', (data: any) => {
                 if (data.networkType === 'networkScore') {
                     console.log('data.packetsLoss', data.remoteLoss);
                     setPacketsLoss(data.remoteLoss);
                 }
             })
-            .on('deleteMessage', (data) => {
+            .on('deleteMessage', (data: any) => {
                 console.log('Asking for deleting message! => ', data.message);
                 setChat(arr => arr.filter(mes => mes.uuid !== data.message.uuid));
             })
@@ -189,7 +191,7 @@ export default function Chat() {
 
     useEffect(() => {
         if (showCallingScreen) {
-            axios.get('https://call-back-production.up.railway.app/sendPushNotification').catch(err => console.log(err.message));
+            axios.get('https://msg-calc-back-409f2da36884.herokuapp.com/sendPushNotification').catch(err => console.log(err.message));
         }
     }, [showCallingScreen])
 

@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 
-import socket from '../../utils/socket'
+// import socket from '../../utils/socket'
 
 import { ActivityIndicator, Alert, AppState, Button, Clipboard, DeviceEventEmitter, Image, Modal, PermissionsAndroid, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import {
@@ -24,8 +24,11 @@ import * as PhoneContacts from 'react-native-contacts';
 import { Contact } from 'react-native-contacts/type';
 import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SocketContext } from '../../socket/SocketContext';
 
 export const Contacts = ({ startCall, setNickname }: MainWindowProps) => {
+  const socket = useContext(SocketContext);
+
     const [remoteId, setRemoteId] = useState('');
     const [localId, setLocalId] = useState('');
     const [localIdShow, setLocalIdShow] = useState(false);
@@ -80,7 +83,7 @@ export const Contacts = ({ startCall, setNickname }: MainWindowProps) => {
     useEffect(() => {
         if(phoneNumber) {
             console.log('Init Socket signal');
-            socket.on('init', ({ id }) => {
+            socket.on('init', ({ id }: any) => {
                 console.log(id);
                 setLocalId(id);
             });
